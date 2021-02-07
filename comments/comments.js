@@ -1,10 +1,15 @@
 const express=require('express');
 const cors=require('cors');
 
+const commentRoute=require('./route/router')
+
 const app=express();
-app.use(cors())
+app.use(cors());
 app.use(express.json());
 
+
+//,ounting routes
+app.use('/posts/:id/comments',commentRoute)
 
 const PORT=process.env.PORT||5000;
 
