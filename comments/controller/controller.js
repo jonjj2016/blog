@@ -10,7 +10,9 @@ exports.get=(req,res)=>{
         data:comments
     })
 };
-
+// POST route to post comments
+// public
+// posts/:postId/comments
 exports.create=(req,res)=>{
     const id=randomBytes(4).toString('hex');
     const {content}=req.body;
