@@ -9,7 +9,7 @@ app.use(express.json());
 
 
 //,ounting routes
-app.use('/posts/:id/comments',commentRoute)
+app.use('/posts',commentRoute)
 
 const PORT=process.env.PORT||5000;
 

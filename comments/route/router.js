@@ -3,7 +3,7 @@ const {get,create}=require('../controller/controller')
 
 const router=express.Router();
 
-router.route('/').get(get).post(create)
+router.route('/:postId/comments').get(get).post(create);
 
 
 

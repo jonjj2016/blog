@@ -1,14 +1,16 @@
 const {posts} =require('../utils/util');
 const {randomBytes}=require('crypto');
 
-exports.get=(req,res)=>{
+const get=(req,res)=>{
+    console.log(req.params);
+   
     res.status(200).json({
         status:true,
         items:Object.keys(posts).length,
         data:posts
     });
-}
-exports.post=async(req,res)=>{
+};
+const post=async(req,res)=>{
     try {
         
         const id=await randomBytes(4).toString('hex');
@@ -23,4 +25,7 @@ exports.post=async(req,res)=>{
     } catch (error) {
         
     }
+};
+module.exports={
+    get,post
 }
