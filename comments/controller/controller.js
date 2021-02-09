@@ -35,7 +35,7 @@ exports.create=async(req,res)=>{
     });
 }
 exports.eventListener=(req,res)=>{
-    console.log("Event Received",req.body.type);
+    // console.log("Event Received",req.body.type);
 
     res.send({status:"ok"})
 }

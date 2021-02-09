@@ -31,7 +31,7 @@ const post=async(req,res)=>{
 };
 
 const eventListener=(req,res)=>{
-    console.log("Event Received",req.body.type);
+    // console.log("Event Received",req.body.type);
     res.send({status:"ok"})
 
 }

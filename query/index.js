@@ -12,7 +12,7 @@ app.use(cors());
 // app.use('/',queryRoute);
 app.post('/events',create);
 app.get('/posts',(req,res)=>{
-    console.log("Requested to get posts");
+    // console.log("Requested to get posts");
     res.status(200).json({status:true,data:posts})
 });
 

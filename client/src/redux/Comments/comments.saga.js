@@ -1,6 +1,8 @@
 import {call,put,all,takeLatest,takeEvery} from 'redux-saga/effects';
 import {actions,types} from './comments.types';
+import {types as postTypes} from '../Posts/types'
 import apiGen from '../../utils/util';
+// console.log(postTypes);
 
 function * getComments(props) {
     try {
@@ -25,7 +27,7 @@ function * createComment(props) {
         const res=  yield call(apiGen,`http://localhost:5000/posts/${props.payload.id}/comments`,['post'],{content:props.payload.data});
         // console.log(res);
         yield put ({
-            type:types.CREATE_SUCCESS,payload:{
+            type:postTypes.PATCH_START,payload:{
                 data:res.data.data,
                 id:props.payload.id
             }
