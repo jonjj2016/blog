@@ -1,6 +1,5 @@
 import {types,actions} from './types';
 
-console.log(types);
 const initState={
     posts:{}
 };

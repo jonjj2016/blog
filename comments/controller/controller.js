@@ -12,7 +12,7 @@ exports.get=(req,res)=>{
 };
 // POST route to post comments
 // public
-// posts/:postId/comments
+// posts/:postId/comm
 exports.create=(req,res)=>{
     const id=randomBytes(4).toString('hex');
     const {content}=req.body;

@@ -7,7 +7,7 @@ import {useDispatch,useSelector} from 'react-redux'
 const PostList = () => {
     const {posts}=useSelector(state=>state.posts);
     const keys=Object.keys(posts);
-    console.log(keys);
+    // console.log(keys);
 
     return (
         <Card.Group>

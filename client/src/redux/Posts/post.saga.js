@@ -32,7 +32,7 @@ function * createPost(props) {
     console.log(props);
     try {
         const res=yield call(apiGen,"http://localhost:4000/posts",['post'],{title:props.payload});
-        console.log(res.data.data);
+        // console.log(res.data.data);
         yield put(actions.create_success(res.data.data))
     } catch (error) {
         

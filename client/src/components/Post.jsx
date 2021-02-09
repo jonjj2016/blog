@@ -1,7 +1,24 @@
-import React from 'react';
-import {Segment,Card,Button,List,Form} from 'semantic-ui-react';
+import React,{useEffect} from 'react';
+import {Card,List,} from 'semantic-ui-react';
+import Comment from './Comment';
+import {useDispatch,useSelector} from 'react-redux'
+import {actions,types} from '../redux/Comments/comments.types'
+
 
 const Post = ({post}) => {
+   
+    
+
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch({
+            type:types.GET_START,
+            id:post.id
+        })
+    }, [])
+    
+    const comments=useSelector(state=>state.comments[post.id]);
+    // console.log(comments);
     return (
         <Card>
                 <Card.Content>
@@ -12,16 +29,11 @@ const Post = ({post}) => {
                         1 comment
                     </Card.Content>
                     <List bulleted>
-                        
-                        <List.Item>
-                            Im a comment
-                        </List.Item>
+                        {
+                            comments&&comments.map(item=><List.Item key={item.id}>{item.content}</List.Item>)
+                        }
                     </List>
-                    <Form>
-                        <label>Comment</label>
-                        <input/>
-                        <Button>Sumit</Button>
-                    </Form>
+                   <Comment id={post.id}/>
                 </Card.Content>
             </Card>
     )
