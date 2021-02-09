@@ -6,7 +6,6 @@ import {
 } from 'redux-saga/effects';
 import axios from 'axios';
 import {types,actions} from './types';
-import { createStore } from 'redux';
 
 function * apiGen (url,method,data) {
     const config={
@@ -22,7 +21,8 @@ function * apiGen (url,method,data) {
 
 function * getPosts () {
     try {
-            const res= yield call(apiGen,"http://localhost:4000/posts",['get']);
+            const res= yield call(apiGen,"http://localhost:7700/posts",['get']);
+            console.log(res);
             yield put(actions.get_success(res.data))
     } catch (error) {
         
