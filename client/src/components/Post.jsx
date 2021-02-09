@@ -26,7 +26,7 @@ const Post = ({post}) => {
                         {post.title}
                     </Card.Header>
                     <Card.Content>
-                        1 comment
+                       {/* {comments.length?comments.length:"no"} comments */}
                     </Card.Content>
                     <List bulleted>
                         {
