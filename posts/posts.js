@@ -1,5 +1,6 @@
 const express=require('express');
 const cors=require('cors');
+const {eventListener} =require('./controller/controller')
 
 const postRoute=require('./route/router.js');
 
@@ -11,7 +12,7 @@ app.use(express.json());
 
 app.use('/posts',postRoute);
 
-
+app.post('/events',eventListener)
 
 
 const PORT=process.env.PORT||4000;
