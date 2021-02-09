@@ -7,14 +7,20 @@ import {actions} from '../redux/Posts/types'
 const PostCreate = () => {
     const [post,createPost]=useState("")
     const dispatch = useDispatch();
+
+
+
     const onSubmit=(e)=>{
         e.preventDefault();
+        dispatch(actions.create_start(post));
         createPost('')
     }
     const onChange=e=>{
         createPost(e.target.value)
     }
     
+
+
     return (
             <Segment>
                 <h1>Create Post</h1>

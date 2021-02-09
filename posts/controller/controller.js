@@ -2,8 +2,6 @@ const {posts} =require('../utils/util');
 const {randomBytes}=require('crypto');
 
 const get=(req,res)=>{
-    console.log(req.params);
-   
     res.status(200).json({
         status:true,
         items:Object.keys(posts).length,

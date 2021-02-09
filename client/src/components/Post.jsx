@@ -1,12 +1,12 @@
 import React from 'react';
 import {Segment,Card,Button,List,Form} from 'semantic-ui-react';
 
-const Post = () => {
+const Post = ({post}) => {
     return (
         <Card>
                 <Card.Content>
                     <Card.Header>
-                        My Post
+                        {post.title}
                     </Card.Header>
                     <Card.Content>
                         1 comment
