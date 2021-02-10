@@ -9,16 +9,7 @@ const Post = ({post}) => {
    
     
 
-    // const dispatch = useDispatch()
-    // useEffect(() => {
-    //     // dispatch({
-    //     //     type:types.GET_START,
-    //     //     id:post.id
-    //     // })
-    // }, [])
     
-    // const comments=useSelector(state=>state.comments[post.id]);
-    // // console.log(comments);
     return (
         <Card>
                 <Card.Content>
@@ -30,7 +21,21 @@ const Post = ({post}) => {
                     </Card.Content>
                     <List bulleted>
                         {
-                            post.comments&&post.comments.map(item=><List.Item key={item.id}>{item.content}{item.status=="approved"&&<p>wow</p>}</List.Item>)
+                            post.comments&&post.comments.map(item=>{
+                                let content;
+
+                                if(item.status=="approved"){
+                                    content=item.content
+                                }else if(item.status=="rejected"){
+                                    content="This comment has  been rejected"
+                                }else {
+                                    content="This comment is awaiting moderation"
+                                }
+                             return   <List.Item key={item.id}>
+                                 {content}
+                                {/* {item.status=="approved"?<span>{item.content}</span>:<span style={{color:"red"}}>{item.content}</span>} */}
+                                </List.Item>
+                            })
                         }
                     </List>
                    <Comment id={post.id}/>
