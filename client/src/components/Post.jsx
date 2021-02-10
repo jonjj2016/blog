@@ -30,7 +30,7 @@ const Post = ({post}) => {
                     </Card.Content>
                     <List bulleted>
                         {
-                            post.comments&&post.comments.map(item=><List.Item key={item.id}>{item.content}</List.Item>)
+                            post.comments&&post.comments.map(item=><List.Item key={item.id}>{item.content}{item.status=="approved"&&<p>wow</p>}</List.Item>)
                         }
                     </List>
                    <Comment id={post.id}/>

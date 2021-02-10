@@ -1,7 +1,6 @@
 const axios=require('axios');
 
 const post=async(req,res)=>{
-    console.log(req.body);
     const {type,data}=req.body
     try {
         if(type=="CommentCreated"){
@@ -16,6 +15,7 @@ const post=async(req,res)=>{
                 },
                 
             })
+            res.send({});     
         }
         res.status(200).json({
             tsatus:true
