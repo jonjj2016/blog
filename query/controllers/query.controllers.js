@@ -13,12 +13,11 @@ const create=(req,res)=>{
         res.send({status:true,data:posts[data.id]})
 
     }else if(req.body.type=="CommentCreated"){
-        const {data,postId}=req.body;
-        posts[postId]={...posts[postId],comments:[...posts[postId].comments,data]}
-
-        res.send({status:true,data:posts[postId]})
+        let {data,status}=req.body;
+        data={...data,status};
+        posts[data.postId]={...posts[data.postId],comments:[...posts[data.postId].comments,data]}
+        res.send({status:true,data:posts[data.postId]})
     }
-    // console.log("Quer Server has received  :",req.body.type,"  event");
 };
 
 module.exports={

@@ -19,14 +19,14 @@ exports.create=async(req,res)=>{
     const {content}=req.body;
     const comments=commentsByPostId[req.params.postId]||[]
     comments.push({
-        id,content
+        id,content,status:"pending"
     })
     commentsByPostId[req.params.postId]=comments;
     //emmiting event to our event bus
     await axios.post('http://localhost:4005/events',{
             type:"CommentCreated",
-            data:{id,content},
-            postId:req.params.postId
+            data:{id,content,postId:req.params.postId, status:"pending"},
+           
         })
 
     res.status(201).json({

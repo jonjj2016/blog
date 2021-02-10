@@ -1,8 +1,8 @@
 const express=require('express');
 const cors=require('cors');
 const queryRoute=require('./route/query.route');
-const {create,get}= require('./controllers/query.controllers')
-const posts=require('./utils/util')
+const {create,get}= require('./controllers/query.controllers');
+const posts=require('./utils/util');
 
 const app=express();
 app.use(express.json());
